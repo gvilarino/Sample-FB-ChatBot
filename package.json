@@ -1,16 +1,17 @@
 {
-  "name": "samplefacebookbot",
-  "version": "1.0.0",
-  "description": "chat bot sample app",
+  "name": "hodor-bot-fb",
+  "version": "0.0.1",
+  "description": "Hodor chat bot",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "pahan perera",
+  "author": "gvilarino",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.15.0",
-    "express": "^4.13.4",
-    "request": "^2.72.0"
+    "body-parser": "~1.15.0",
+    "express": "~4.13.4",
+    "request": "~2.72.0"
   }
 }
