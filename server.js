@@ -17,7 +17,7 @@ app.get('/webhook/', function (req, res) {
         res.send(req.query['hub.challenge']);
     }
     else{
-        console.log('webook challenge succeeded')
+        console.log('webook challenge failed')
         res.send('Error, wrong validation token');
     }
 });
