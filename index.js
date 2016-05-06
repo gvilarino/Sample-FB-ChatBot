@@ -3,6 +3,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var request = require('request');
 
+app.use(express.static('static'));
+
 // register body parser to express js in order to get the POST req.body data
 app.use(bodyParser.json());
 
