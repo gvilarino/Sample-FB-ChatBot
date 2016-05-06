@@ -7,20 +7,24 @@ var request = require('request');
 app.use(bodyParser.json());
 
 // replace wth your FB verification token
-var token = "<YOUR_VERIFY_TOKEN>";
+var token = process.env.FB_TOKEN
 
 // GET /webhook will validate the request token and grant access to the FB application
 app.get('/webhook/', function (req, res) {
+    console.log('/webhook GET called')
     if (req.query['hub.verify_token'] === token) {
+        console.log('webook challenge succeeded');
         res.send(req.query['hub.challenge']);
     }
     else{
+        console.log('webook challenge succeeded')
         res.send('Error, wrong validation token');
     }
 });
 
 // POST /webhook will listen to the messages that are sent to the FB Page/App
 app.post('/webhook/', function (req, res) {
+    console.log('/webhook POST called')
     var messaging_events = req.body.entry[0].messaging;
     for (i = 0; i < messaging_events.length; i++) {
         var event = req.body.entry[0].messaging[i];
@@ -28,7 +32,7 @@ app.post('/webhook/', function (req, res) {
         if (event.message && event.message.text) {
             text = event.message.text;
             console.log("Received msg : "+text);
-            sendTextMessage(sender, "Echo: "+ text.substring(0, 200));
+            sendTextMessage(sender, "HODOR");
         }
     }
     res.sendStatus(200);
